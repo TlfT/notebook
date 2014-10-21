@@ -9,9 +9,12 @@ class UsersController < ApplicationController
   end
 
   def show
+  if current_user.nil?
+  else
   @user = current_user
   @micropost = current_user.microposts.build
   @microposts = current_user.microposts.paginate(page: params[:page])
+  end
   end
 
   def display
