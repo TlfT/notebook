@@ -1,21 +1,18 @@
-<li id="comment-<%= comment.id %>">
-  <% if comment.user.name = "kimberly" %>
+<li>
+<% if micropost.user.id == 1 %>
+
   <div style="
   width:100%;
-  padding-top:15px;
-  padding-bottom;15px;
+
   background-color:rgba(252,240,244,.7);
   ">
-  <p style="
-  float:left;
-  "><%= image_tag("tiger1.jpg") %>
-  </p>
-  <p style="
-  float:right;
-  padding-left:7px;
-  "><%= comment.content %><br>
-  <center>Posted <%= time_ago_in_words(comment.created_at) %> a go</center></p>
-  </li>
+  <table style="border:none;"><tr><td style="min-height:121px; width:191px; padding:3px; vertical-align:center;">
+  <%= image_tag("tiger1.jpg") %>
+  </td>
+<td style=" min-height:121px; vertical-align:center; padding:15px;">
+  <%= micropost.content %><br><br>
+  <center>Posted <%= time_ago_in_words(micropost.created_at) %> a go</center></p>
+  </td></tr></table>
   <% else %>
 
   <div style="
@@ -33,18 +30,17 @@
   alight:left;
   float:left;
   padding-left:7px;
-  "><%= comment.content %><br>
-  <center>Posted <%= time_ago_in_words(comment.created_at) %> a go</center></div>
-  </li>
+  "><%= micropost.content %><br>
+  <center>Posted <%= time_ago_in_words(micropost.created_at) %> a go</center></div>
+<% end %>
+</li>
 
 
 
 
 
-
-
-
-<!-- <li>
+<!--
+<li>
   <span class="content"><%= micropost.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
@@ -54,5 +50,5 @@
                                      data: { confirm: "You sure?" },
                                      title: micropost.content %>
   <% end %>
-</li> -->
+</li>  -->
 
