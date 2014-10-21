@@ -1,37 +1,31 @@
 <li>
-<% if micropost.user.id == 1 %>
+<% if micropost.matt == false %>
 
   <div style="
   width:100%;
 
   background-color:rgba(252,240,244,.7);
   ">
-  <table style="border:none;"><tr><td style="min-height:121px; width:191px; padding:3px; vertical-align:center;">
+  <table style="border:none; width:100%"><tr><td style="min-height:121px; width:191px; padding:3px; vertical-align:center;">
   <%= image_tag("tiger1.jpg") %>
   </td>
-<td style=" min-height:121px; vertical-align:center; padding:15px;">
+<td style=" min-height:121px; vertical-align:center; padding:15px; padding-right:50px;">
   <%= micropost.content %><br><br>
-  <center>Posted <%= time_ago_in_words(micropost.created_at) %> a go</center></p>
-  </td></tr></table>
+  Posted <%= time_ago_in_words(micropost.created_at) %> a go
+  </td></tr></table></div>
   <% else %>
-
   <div style="
   width:100%;
-  padding-top:15px;
-  padding-bottom;15px;
-  background-color:rgba(240,252,244,.7);
+  background-color:rgba(244,255,244,.7);
   ">
-  <div style="
-  align:right;
-  float:right;
-  "><%= image_tag("stag1.jpg") %>
-  </div>
-  <div style="
-  alight:left;
-  float:left;
-  padding-left:7px;
-  "><%= micropost.content %><br>
-  <center>Posted <%= time_ago_in_words(micropost.created_at) %> a go</center></div>
+  <table style="border:none;"><tr style="width:$(window).width();">
+  <td style="min-height:121px; vertical-align:center; padding:15px; padding-left:50px; width:100%; text-align:right;">
+  <%= micropost.content %><br><br>
+  Posted <%= time_ago_in_words(micropost.created_at) %> a go
+  </td>
+  <td style="min-height:121px; width:191px; padding:3px; vertical-align:center;  float:right; align:right;">
+  <%= image_tag("stag1.jpg") %>
+  </td></tr></table></div>
 <% end %>
 </li>
 

@@ -1,10 +1,10 @@
 <% if current_user.nil? %>
 <div style="
   width:$(window).width();
-  height:65%;
+  height:500px;
   background-color:rgba(253,249,249,.67);
-  overflow:auto;
-  border-radius:10% 10% 10% 10%;
+  overflow:scroll;
+  border-radius:5px 5px;
   border-style:solid;
   border-width:12px;
   border-color:rgba(253,249,249,.4);
@@ -27,24 +27,26 @@
 
 <div style="
   width:$(window).width();
-  height:65%;
+  max-height:450px;
+  margin-right:2%;
+  margin-left:2%;
   background-color:rgba(253,249,249,.67);
   overflow:auto;
-  border-radius:10% 10% 10% 10%;
+  border-radius:22px 22px 22px 22px;
   border-style:solid;
   border-width:12px;
   border-color:rgba(253,249,249,.4);
-  padding:3% 3% 3% 3%;
+ padding-top:20px;
+padding-right:7px;
+padding-left:7px;
   ">
 
 
-
-  <% if User.all.microposts.any? %>
-  <ol class="microposts">
+<ol class="microposts">
   <%= render @microposts %>
 </ol>
 <%= will_paginate @microposts %>
-  <% end %>
+
 
 </div>
 
@@ -52,17 +54,23 @@
 width:$(window).width();
 height:31%;
 margin-top:4%;
+  margin-right:2%;
+  margin-left:2%;
 background-color:rgba(253,249,249,.74);
 overflow:auto;
 border-radius:10% 10% 10% 10%;
 border-style:solid;
 border-width:12px;
 border-color:rgba(253,249,249,.4);
-padding:3% 3% 3% 3%;
+padding-top:20px;
+padding-right:7px;
+padding-left:7px;
 ">
 <%= form_for(@micropost) do |f| %>
-  <%= f.text_area :content, :value => "", rows: 10, :style => "width:100%"  %>
- &nbsp &nbsp <%= f.submit "Post", class: "btn btn-primary" %>
+ <%= f.text_area :content, :value => "", rows: 6, :style => "width:100%"  %>
+ &nbsp &nbsp<%= f.submit "Post", class: "btn btn-primary" %>
+ <p style="float:right">
+ <%= f.check_box :matt, {}, "true", "false" %></p>
 <% end %>
 
 

@@ -67,8 +67,10 @@ padding-right:7px;
 padding-left:7px;
 ">
 <%= form_for(@micropost) do |f| %>
-  <%= f.text_area :content, :value => "", rows: 6, :style => "width:100%"  %>
- &nbsp &nbsp<center><%= f.submit "Post", class: "btn btn-primary" %></center>
+ <%= f.text_area :content, :value => "", rows: 6, :style => "width:100%"  %>
+ &nbsp &nbsp<%= f.submit "Post", class: "btn btn-primary" %>
+ <p style="float:right">
+ <%= f.check_box :matt, {}, "true", "false" %></p>
 <% end %>
 
 
