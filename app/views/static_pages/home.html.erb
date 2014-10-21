@@ -1,34 +1,28 @@
-<% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="span8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
-    </div>
-  </div>
-<% else %>
-  <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
-
-    <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
-
-    <%= link_to "Sign up now!", signup_path,
-                                class: "btn btn-large btn-primary" %>
-  </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% if current_user.nil? %>
+<div style="
+  width:$(window).width();
+  height:65%;
+  background-color:rgba(253,249,249,.67);
+  overflow:auto;
+  border-radius:10% 10% 10% 10%;
+  border-style:solid;
+  border-width:12px;
+  border-color:rgba(253,249,249,.4);
+  padding:3% 3% 3% 3%;
+  margin-left:4%;
+  margin-right:4%;
+  ">
+ <center>
+<%= form_for(:session, url: sessions_path) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.submit "Sign in", class: 'btn btn-small btn-primary' %>
 <% end %>
+</center>
+</div>
+<% else %>
+<% redirect_to 'users/diplay' %>
+<% end %>
+
